@@ -20,16 +20,16 @@ WUMS_ROOT := $(DEVKITPRO)/wums
 # DATA is a list of directories containing data files
 # INCLUDES is a list of directories containing header files
 #-------------------------------------------------------------------------------
-TARGET		:=	runtime-patcher
+TARGET		:=	CafeBinPatch
 BUILD		:=	build
-SOURCES		:=	src src/utils src/shaders
+SOURCES		:=	src src/utils src/modfile
 DATA		:=	data
 INCLUDES	:=	src
 
 #-------------------------------------------------------------------------------
 # options for code generation
 #-------------------------------------------------------------------------------
-CFLAGS	:=	-g -Wall -O2 -ffunction-sections \
+CFLAGS	:=	-Wall -O2 -ffunction-sections -std=c++20 \
 			$(MACHDEP)
 
 CFLAGS	+=	$(INCLUDE) -D__WIIU__ -D__WUT__ -D__WUPS__
